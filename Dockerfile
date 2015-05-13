@@ -1,5 +1,5 @@
 FROM ubuntu:trusty
-MAINTAINER Dell Cloud Market Place <Cloud_Marketplace@dell.com>
+MAINTAINER Durga Prasad R <durga0415@gmail.com>
 
 # Install packages
 RUN apt-get update 
@@ -36,15 +36,6 @@ RUN a2enmod rewrite
 # Environment variables to configure PHP
 ENV PHP_UPLOAD_MAX_FILESIZE 10M
 ENV PHP_POST_MAX_SIZE 10M
-
-# Configure SSL
-RUN a2enmod ssl
-RUN mkdir /etc/apache2/ssl 
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout \
-    /etc/apache2/ssl/apache.key -out /etc/apache2/ssl/apache.crt \
-    -subj '/O=Dell/OU=MarketPlace/CN=www.dell.com'
-RUN a2ensite default-ssl
-RUN service apache2 restart
 
 EXPOSE 80 3306 443
 

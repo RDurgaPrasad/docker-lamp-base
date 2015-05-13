@@ -1,5 +1,5 @@
 # docker-lamp-base
-A basic LAMP image for dependant images such as [dell/wordpress](https://github.com/dell-cloud-marketplace/docker-wordpress).
+A basic LAMP image for dependant images
 
 This blueprint installs a basic [LAMP](http://en.wikipedia.org/wiki/LAMP_\(software_bundle\))
  stack - a popular combination of open source software components, used to build dynamic web sites.
@@ -19,11 +19,11 @@ PHP        | 5.5.9     | Scripting language
 ### Basic Example
 Start your image binding host port 8080 to port 80 (Apache Web Server/HTTP), 443 to 443 (Apache Web Server/HTTPS) and 3306 to 3306 (MYSQL) in your container:
 
-    sudo docker run -d -p 8080:80 -p 3306:3306 -p 443:443 dell/lamp-base
+    sudo docker run -d -p 80:80 -p 3306:3306 -p 443:443 drasamsetti/lamp-base
 
 Test your deployment:
 
-    curl http://localhost:8080/
+    curl http://localhost/
 
 ## Administration
 
@@ -69,5 +69,3 @@ PHP code with this user:
 ### Image Details
 
 Based on  [tutum/lamp](https://github.com/tutumcloud/tutum-docker-lamp)
-
-Pre-built Image   | [https://registry.hub.docker.com/u/dell/lamp-base](https://registry.hub.docker.com/u/dell/lamp-base) 
